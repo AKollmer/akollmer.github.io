@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Resume</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:500,200,700" rel="stylesheet">
+    <style>a,h1,h2,h3,h4,h5,h6,li,p{font-family:Raleway,sans-serif}.resume{background-color:#1f1f1f;min-height:100vh}.resume .main{height:100%;width:700px;background-color:#fff;padding:0 25px;margin:0 auto}.resume .main .header{border-bottom:2px solid #ddd}.resume .main .header .page-title-container{margin:0 auto;text-align:center;padding-bottom:10px}.resume .main .header .page-title{font-size:48pt;display:inline}.resume .main .header .page-title-first{font-weight:400}.resume .main .header .page-title-last{font-weight:200}.resume .main .header .header-icons{text-align:center}.resume .main .header .header-icons .page-subhead{margin:1rem 15px;display:inline}.resume .main .header .fa{padding-right:10px}.resume .main .indented{padding-left:40px}.resume .main .category-row{padding-bottom:2px}.resume .main .category-row .category{margin-right:10px;padding-left:5px;padding-right:10px;border-bottom:1px solid #ddd;border-right:1px solid #ddd}.resume .main .category-row .category-row-title{margin:.4rem 0}.resume .main .category-row .category-subtitle,.resume .main .category-row .category-title{display:inline;margin-top:10px;margin-bottom:5px}.resume .main .category-row .category-bullets{margin-top:5px}.resume .main .category-row li,.resume .main .category-row p{font-size:smaller}category:last-of-type category-item:last-of-type .category,sidebar-category:last-of-type .category{border-bottom:0!important;padding-bottom:0!important;margin-bottom:0!important}</style>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+    <!-- <script src="resume.js"></script> -->
+    <script>"use strict";angular.module("Resume",["ngMaterial"]).directive("resume",function(){return{restrict:"E",transclude:!0,template:'<div class="resume">\n      <section class="main" ng-transclude></section>\n    </div>'}}).directive("resumeHeading",function(){return{restrict:"E",scope:{firstName:"@",lastName:"@",website:"@",phone:"@",email:"@",github:"@",linkedin:"@"},template:'<div class="header">\n      <div class="page-title-container">\n        <h1 class="page-title page-title-first">{{firstName}}</h1>\n        <h1 class="page-title page-title-last">{{lastName}}</h1>\n      </div>\n      <div class="header-icons">\n        <span ng-if="website" class="md-subhead page-subhead"><i class="fa fa-lg fa-code"></i>{{website}}</span>\n        <span ng-if="phone" class="md-subhead page-subhead"><i class="fa fa-lg fa-phone"></i>{{phone}}</span>\n        <span ng-if="email" class="md-subhead page-subhead"><i class="fa fa-lg fa-envelope"></i>{{email}}</span>\n        <span ng-if="github" class="md-subhead page-subhead"><i class="fa fa-lg fa-github"></i>{{github}}</span>\n        <span ng-if="linkedin" class="md-subhead page-subhead"><i class="fa fa-lg fa-linkedin-square"></i>{{linkedin}}</span>\n      </div>\n    </div>'}}).directive("resumeBody",function(){return{restrict:"E",transclude:!0,template:'<div layout="row" ng-transclude></div>'}}).directive("resumeColumn",function(){return{restrict:"E",transclude:!0,template:"<div ng-transclude></div>"}}).directive("sidebarCategory",function(){return{restrict:"E",scope:{name:"@"},transclude:!0,template:'<div flex="" class="category-row">\n      <div class="category">\n        <h5 class="category-row-title">{{name}}</h5>\n        <ng-transclude></ng-transclude>\n      </div>\n    </div>'}}).directive("category",function(){return{restrict:"E",scope:{name:"@"},transclude:!0,template:'<div flex="" class="category-row">\n      <h4 class="category-row-title">{{name}}</h4>\n      <ng-transclude></ng-transclude>\n    </div>'}}).directive("categoryItem",function(){return{restrict:"E",scope:{title:"@",subtitle:"@"},transclude:!0,template:'<div class="category">\n        <h5 class="category-title md-body-2">{{title}}</h5>&nbsp;\n        <h5 class="category-subtitle md-caption">{{subtitle}}</h5>\n        <ul class="category-bullets" ng-transclude></ul>\n    </div>'}});</script>
+</head>
+
+<body ng-app="Resume" ng-cloak>
+    <resume>
+        <resume-heading first-name="Andrew "
+                        last-name="Kollmer"
+                        email="ajkollmer@gmail.com"
+                        phone="631-456-9169"
+                        linkedin="">
+        </resume-heading>
+        <resume-body>
+            <resume-column flex="20">
+                </sidebar-category>
+                <sidebar-category name="Education">
+                    <p>Juniper Networks Learning Academy</p>
+                    <p>Independent Study involving Networks, Switching  and Routing</p>
+                    <p>June 2013-October 2013</p>
+                    
+                    <p>Comp TIA A+ Certification (Hardware)</p>
+                    <p>Independent Study</p>
+                    <p>August 2012</p>
+                    
+                    <p>BPS Advertising Design</p>
+                    <p>Empire State College</p>
+                    <p>Old Westbury, NY</p>
+                    <p>May 1994</p>
+            
+                </sidebar-category>
+                <sidebar-category name="Awards">
+                    <p>Prestige Employee Administrators</p>
+                    <p>Employee of the Quarter, Q1 2016</p>
+                    
+                </sidebar-category>
+            </resume-column>
+            <resume-column flex="80">
+                <category name="Field Experience">
+                    <category-item title="Prestige Employee Administrators" subtitle="IT Manager : March 2015-Present">
+                        <li>Solely support the stable operation and functionality of all in-house PCs (Windows 7, Windows 10), printers, phones, servers, network services, and other hardware within an office environment of 100 end-users.</li>
+                        <li>Implemented and managed the processing of incoming requests to the Help Desk via ticketing system, telephone and/or email to ensure courteous, timely and effective resolution of end-user issues.</li>
+                        <li>Perform hands-on fixes at the desktop and server level.</li>
+                        <li>Administer the management of servers and their associated operating systems (Windows 2003, 2008, 2012) and software including anti-virus and intrusion detection systems.</li>
+                        <li>Provide on-call, 24/7 technical support when required.</li>
+                        <li>Install, configure, test, maintain, monitor and troubleshoot end-user hardware, networked peripheral devices and software products.</li>
+                        <li>Deliver group presentations to all end users in proper Cyber Security practices on a quarterly basis.</li>
+                        <li>Administration of user accounts, permissions, and access rights via Active Directory.</li>
+                        <li>Experience with configuration of a Datto brand appliance (an on-site and cloud backup device).</li>
+                        <li>Manage all end-user email accounts via hosted email provider.</li>
+                        <li>Handle the acquisition of desktop computers, servers and other hardware when required.</li>
+                        <li>Assist in other IT projects as assigned by the IT Director or CTO.</li>
+                        <li>Handle all end-user VOIP telephone accounts via interface of third party provider.</li>
+                        <li>Working knowledge of Hyper-V server; currently manage 10 remote users on the device.</li>
+                        <li>Experience with backups and Disaster Recovery scenarios with Continuity Centers, an off site service provider.</li>
+                        <li>Excellent people skills. Highly respected by both management and co-workers.</li>
+                    </category-item>
+                    <category-item title="CSDNET" subtitle="Help Desk Technician/Assistant System Administrator :  Oct. 2012-Feb. 2015">
+                        <li>Supported the operation and integrity of all in-house PCs (Windows XP, Windows 7, OSX), printers, network services, and other hardware within a school district.</li>
+                        <li>Assisted in the processing of incoming requests to the Help Desk via ticketing system, telephone and/or email to effectively resolve end-user problems.
+                        <li>Administered the basic management of servers and other associated operating systems (Windows 2003, 2008, 2012) and software including anti-virus nd intrusion detection systems.</li>
+                        <li>Administration of end user accounts, permissions, and access rights.</li>
+                        <li>Provided on-call technical support when required..</li>
+                        <li>Installed, configured, tested, maintained, monitored and troubleshooted end-user hardware, software, networked peripheral devices and software products.</li>
+                        <li>Performed other tasks and assisted in IT projects as assigned by the Account Manager.</li>
+                    </category-item>
+                    <category-item title="The Village Plaquesmith" subtitle="Graphic Designer/Desktop Technician  :  Dec. 1994-Oct. 2012">
+                        <li>Supported all PCs, printers and networking hardware on premises.</li>
+                        <li>Assisted in the development of full service digital in-house art department.</li>
+                        <li>Performed any hardware/software fixes as required.</li>
+                        <li>Invaluable as a customer service representative.</li>
+                    </category-item>
+                </category>
+                
+                    </category-item>
+                </category>
+            </resume-column>
+        </resume-body>
+    </resume>
+</body>
+
+</html>
